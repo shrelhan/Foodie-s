@@ -23,184 +23,116 @@ foodieApp.controller('loginController',function($scope,$location) {
 foodieApp.controller('restaurantController',function($scope,$routeParams) {
 	$scope.restaurantId = $routeParams.id;
 	var restaurants = [{
-  	name: 'Farzi Cafe',
-  	address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-  	location: 'Connaught Place',
-  	category: 'Casual Dining, Bar',
+  	name: 'Relhan Sweets',
+  	address: 'Lal Kuan, Delhi',
+  	location: 'Lal Kuan',
+  	category: 'Sweets shop',
   	vote: '4.2',
-  	cuisines: 'Modern Indian',
-  	cost: '2200',
-  	hours: '12 Noon to 1 AM (Mon-Sun)',
-  	image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+  	cuisines: 'Sweets, Chinese, South Indian, Snacks',
+  	cost: '600',
+  	hours: '6 AM to 10:30 PM (Mon-Sun)',
+  	image: 'relhan.jpg'
   },
   {
-  name: 'Farzi Cafe',
-  address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-  location: 'Connaught Place',
-  category: 'Casual Dining, Bar',
-  vote: '4.2',
-  cuisines: 'Modern Indian',
-  cost: '2200',
-  hours: '12 Noon to 1 AM (Mon-Sun)',
-  image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+  name: 'Haldirams',
+  address: 'Mohan-Co, Badarpur',
+  location: 'Mohan-Co',
+  category: 'Casual Dining',
+  vote: '4.0',
+  cuisines: 'North Indian, Sweets, Snacks',
+  cost: '1200',
+  hours: '11 AM to 10 PM (Mon-Sun)',
+  image: 'http://i.ndtvimg.com/i/2015-02/haldiram2_240x180_51423052523.jpg'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+name: 'Sagar Ratna',
+address: 'Mohan-Co, Badarpur',
+location: 'Badarpur',
+category: 'Casual Dining',
+vote: '4.3',
+cuisines: 'South Indian',
+cost: '800',
+hours: '11 AM to 10 PM (Mon-Sun)',
+image: 'https://s3-ap-southeast-1.amazonaws.com/assets.limetray.com/assets/user_images/logos/original/Sagarratna_1449307245.png'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+name: 'Rasoi',
+address: 'Pul Pehladpur, Delhi',
+location: 'Pul Pehladpur',
+category: 'Casual Dining',
+vote: '3.9',
+cuisines: 'Non Veg, Veg',
+cost: '750',
+hours: '11 AM to 11 PM (Mon-Sun)',
+image: 'https://www.guialis.co.in/uploads/in/orig/0233242001_rasoi-logo-01-jpg--.jpg'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
+name: 'Kake Di Hatti',
+address: 'Inner Circle, Connaught Place',
 location: 'Connaught Place',
-category: 'Casual Dining, Bar',
+category: 'Casual Dining',
 vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe1',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian,Chinese',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-}
-]
+cuisines: 'North Indian',
+cost: '1000',
+hours: '11 PM to 1 AM (Mon-Sun)',
+image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.jpg'
+}]
 	$scope.restaurant = restaurants[$routeParams.id - 1];
 })
 foodieApp.controller('mainController',function($scope) {
   $scope.restaurants = [{
-  	name: 'Farzi Cafe',
-  	address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-  	location: 'Connaught Place',
-  	category: 'Casual Dining, Bar',
+  	name: 'Relhan Sweets',
+  	address: 'Lal Kuan, Delhi',
+  	location: 'Lal Kuan',
+  	category: 'Sweets shop',
   	vote: '4.2',
-  	cuisines: 'Modern Indian',
-  	cost: '2200',
-  	hours: '12 Noon to 1 AM (Mon-Sun)',
-  	image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+  	cuisines: 'Sweets, Chinese, South Indian, Snacks',
+  	cost: '600',
+  	hours: '6 AM to 10:30 PM (Mon-Sun)',
+  	image: 'relhan.jpg'
   },
   {
-  name: 'Farzi Cafe',
-  address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-  location: 'Connaught Place',
-  category: 'Casual Dining, Bar',
-  vote: '4.2',
-  cuisines: 'Modern Indian',
-  cost: '2200',
-  hours: '12 Noon to 1 AM (Mon-Sun)',
-  image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+  name: 'Haldirams',
+  address: 'Mohan-Co, Badarpur',
+  location: 'Mohan-Co',
+  category: 'Casual Dining',
+  vote: '4.0',
+  cuisines: 'North Indian, Sweets, Snacks',
+  cost: '1200',
+  hours: '11 AM to 10 PM (Mon-Sun)',
+  image: 'http://i.ndtvimg.com/i/2015-02/haldiram2_240x180_51423052523.jpg'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+name: 'Sagar Ratna',
+address: 'Mohan-Co, Badarpur',
+location: 'Badarpur',
+category: 'Casual Dining',
+vote: '4.3',
+cuisines: 'South Indian',
+cost: '800',
+hours: '11 AM to 10 PM (Mon-Sun)',
+image: 'https://s3-ap-southeast-1.amazonaws.com/assets.limetray.com/assets/user_images/logos/original/Sagarratna_1449307245.png'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+name: 'Rasoi',
+address: 'Pul Pehladpur, Delhi',
+location: 'Pul Pehladpur',
+category: 'Casual Dining',
+vote: '3.9',
+cuisines: 'Non Veg, Veg',
+cost: '750',
+hours: '11 AM to 11 PM (Mon-Sun)',
+image: 'https://www.guialis.co.in/uploads/in/orig/0233242001_rasoi-logo-01-jpg--.jpg'
 },
 {
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
+name: 'Kake Di Hatti',
+address: 'Inner Circle, Connaught Place',
 location: 'Connaught Place',
-category: 'Casual Dining, Bar',
+category: 'Casual Dining',
 vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe1',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian,Chinese',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-},
-{
-name: 'Farzi Cafe',
-address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
-location: 'Connaught Place',
-category: 'Casual Dining, Bar',
-vote: '4.2',
-cuisines: 'Modern Indian',
-cost: '2200',
-hours: '12 Noon to 1 AM (Mon-Sun)',
-image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
-}
-]
+cuisines: 'North Indian',
+cost: '1000',
+hours: '11 PM to 1 AM (Mon-Sun)',
+image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.jpg'
+}]
 })
