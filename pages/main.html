@@ -14,6 +14,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
+  <li><a href="#!/myModule">myModule</a></li>
   <li><a href="#!/home">Home</a></li>
   <li><a href="#">About</a></li>
   <li><a href="#">Order Online</a></li>
@@ -38,39 +39,44 @@
 </form>
 </div>
         <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant">
-  <div class="rest-wrapper">
-      <div class="image">
-          <img src="{{restaurant.image}}" height="100" width="100">
-      </div>
-      <div class="rest-info">
-          <div class="rest-category">
-             <small>{{restaurant.category}} </small>
+          <div class="rest-wrapper">
+              <div class="image">
+                  <img ng-src="{{restaurant.image}}" height="100" width="100">
+              </div>
+              <div class="rest-info">
+                  <div class="rest-category">
+                     <small>{{restaurant.category}} </small>
+                  </div>
+                  <div class="rest-name">
+          <a ng-href="#!/restaurant/{{restaurant.id}}"><strong>{{restaurant.name}}</strong></a>
+        </div>
+                  <div>
+                     <strong> {{restaurant.location}}</strong>
+                  </div>
+                  <div class="rest-address">
+                      {{restaurant.address}}
+                  </div>
+              </div>
           </div>
-          <div class="rest-name">
-          <strong>{{restaurant.name}}</strong>
+          <div class="rest-extra">
+            <div class="type">
+                <div><small>Cuisines:</small></div>
+                <div><small>Cost for Two: </small></div>
+                <div><small>Hours:</small></div>
+                <div ng-if="restaurant.bestDish"><small>Recommended: </small></div>
+            </div>
+            <div class="value">
+                <div>{{restaurant.cuisines}}</div>
+                <div>₹{{restaurant.cost | number}}</div>
+                <div>{{restaurant.hours}}</div>
+                <div class="bestDish" ng-if="restaurant.bestDish">
+                  <span>{{restaurant.bestDish.name}} </span>
+                  <div ng-click="getIngredients(restaurant.bestDish.image)" class="button">Get Ingredients</div>
+            </div>
+            </div>
+        </div>
+          <div class="rating">
+              <strong>{{restaurant.vote}}</strong>
           </div>
-          <div>
-             <strong> {{restaurant.location}}</strong>
-          </div>
-          <div class="rest-address">
-              {{restaurant.address}}
-          </div>
-      </div>
-  </div>
-  <div class="rest-extra">
-      <div class="type">
-          <div><small>Cuisines:</small></div>
-          <div><small>Cost for Two: </small></div>
-          <div><small>Hours:</small></div>
-      </div>
-      <div class="value">
-<div>{{restaurant.cuisines}}</div>
-<div>₹{{restaurant.cost | number}}</div>
-<div>{{restaurant.hours}}</div>
-</div>
-  </div>
-  <div class="rating">
-      <strong>{{restaurant.vote}}</strong>
-  </div>
 </div>
 </div>

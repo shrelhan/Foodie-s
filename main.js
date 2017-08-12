@@ -13,6 +13,10 @@ foodieApp.config(function ($routeProvider) {
 		templateUrl: 'pages/restaurant.html',
 		controller: 'restaurantController'
 	})
+	.when('/myModule', {
+		templateUrl: 'pages/myModule.html',
+		controller: 'moduleController'
+	})
 })
 foodieApp.controller('loginController',function($scope,$location) {
 	$scope.goToHome = function() {
@@ -38,7 +42,7 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
   				$scope.ingredients.push(ingredients[i].name);
   			}
     		// $('.ingredients').html(list);
-    		console.log(list);
+    		console.log(ingredients);
         }, function (xhr) {
         	console.log(xhr);
         })
@@ -54,8 +58,8 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
   	cost: '600',
   	hours: '6 AM to 10:30 PM (Mon-Sun)',
 		bestDish: {
-			name: 'Corn Pizza',
-			image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+			name: 'Samosa',
+			image: 'https://i.ytimg.com/vi/iIVJN0Yz1Y0/maxresdefault.jpg'
 		},
   	image: 'relhan.jpg'
     },
@@ -69,8 +73,8 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
   cost: '1200',
   hours: '11 AM to 10 PM (Mon-Sun)',
 	bestDish: {
-	name: 'Corn Pizza',
-	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+	name: 'Raj Kachori',
+	image: 'https://i.ytimg.com/vi/YYca7m-DM3c/maxresdefault.jpg'
 },
   image: 'http://i.ndtvimg.com/i/2015-02/haldiram2_240x180_51423052523.jpg'
 },
@@ -84,8 +88,8 @@ cuisines: 'South Indian',
 cost: '800',
 hours: '11 AM to 10 PM (Mon-Sun)',
 bestDish: {
-	name: 'Corn Pizza',
-	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+	name: 'Dosa',
+	image: 'https://img.grouponcdn.com/deal/fndYqd3FYJpV1ip78C86/tR-1762x1057/v1/c700x420.jpg'
 },
 image: 'https://s3-ap-southeast-1.amazonaws.com/assets.limetray.com/assets/user_images/logos/original/Sagarratna_1449307245.png'
 },
@@ -99,8 +103,8 @@ cuisines: 'Non Veg, Veg',
 cost: '750',
 hours: '11 AM to 11 PM (Mon-Sun)',
 bestDish: {
-	name: 'Corn Pizza',
-	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+	name: 'Chicken Curry',
+	image: 'http://www.ndtv.com/cooks/images/quick-chicken-curry-new.jpg'
 },
 image: 'https://www.guialis.co.in/uploads/in/orig/0233242001_rasoi-logo-01-jpg--.jpg'
 },
@@ -114,12 +118,12 @@ cuisines: 'North Indian',
 cost: '1000',
 hours: '11 PM to 1 AM (Mon-Sun)',
 bestDish: {
-	name: 'Corn Pizza',
-	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+	name: 'Shahi Paneer',
+	image: 'https://i.ytimg.com/vi/lzS-aeiCvF8/maxresdefault.jpg'
 },
 image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.jpg'
 }]
-	$scope.restaurant = restaurants[$routeParams.id - 1];
+	$scope.restaurant = restaurants[$routeParams.id-1];
 })
 foodieApp.controller('mainController',function($scope) {
   $scope.restaurants = [{
@@ -177,4 +181,9 @@ cost: '1000',
 hours: '11 PM to 1 AM (Mon-Sun)',
 image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.jpg'
 }]
+})
+foodieApp.controller('moduleController',function($scope){
+	var fats  = [beef,lamb,pork,poultry,beef,cream,butter,cheese,avocado,walnuts,olives,egg];
+	var prots = [];
+	var carbs = [];
 })
