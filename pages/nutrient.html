@@ -1,4 +1,4 @@
-<div class="myModule" ng-controller="moduleController">
+<div class="nutrient" ng-controller="nutrientController">
     <nav class="navbar navbar-default navbar-fixed">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,22 +25,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="back">
-        <strong><p>Find what should you eat!</p></strong>
-    </div>
-    <div ng-repeat="dish in dishes | filter:query" class="restaurant">
-       <div class="rest-wrapper">
-         <div class="image">
-             <img ng-src="{{dish.image}}" height="100" width="100">
-         </div>
-         <div class="rest-info">
-           <div class="rest-category">
-              <small>{{dish.category}} </small>
-           </div>
-         <div class="rest-name">
- <a ng-href="#!/dish/{{dish.id}}"><strong>{{dish.name}}</strong></a>
-</div>
-<div>
-       </div>
-    </div>
   </div>

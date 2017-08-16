@@ -17,6 +17,10 @@ foodieApp.config(function ($routeProvider) {
 		templateUrl: 'pages/myModule.html',
 		controller: 'moduleController'
 	})
+	.when('/dish/:id', {
+		templateUrl: 'pages/myDish.html',
+		controller: 'dishController'
+	})
 })
 foodieApp.controller('loginController',function($scope,$location) {
 	$scope.goToHome = function() {
@@ -192,8 +196,65 @@ image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.j
 id: '5'
 }]
 })
+foodieApp.controller('dishController',function($scope,$routeParams,$http){
+	$scope.ingredients = [];
+	$scope.getIngredients = function(url) {
+	var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
+	$http({
+		'method': 'POST',
+		'url': 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs',
+		'headers': {
+			'Authorization': 'Key d069c54dd0d74aed8bfe6ad7ea79ad13',
+			'Content-Type': 'application/json'
+		},
+		'data': data
+	}).then(function (response) {
+			var ingredients = response.data.outputs[0].data.concepts;
+  			for (var i =0;i < ingredients.length;i++) {
+  				$scope.ingredients.push(ingredients[i].name);
+  			}
+    		// $('.ingredients').html(list);
+    		console.log(ingredients);
+        }, function (xhr) {
+        	console.log(xhr);
+        })
+	}
+	$scope.dishId = $routeParams.id;
+	var dishes = [{
+		name: 'Butter Chicken',
+		image:'https://i.ytimg.com/vi/a03U45jFxOI/maxresdefault.jpg',
+		id: '1'
+	},
+{
+	name: 'Fish',
+	image:  'http://www.arusuvai.com/sites/default/files/howto/2015/10/Fish-Curry.jpg',
+	id: '2'
+},
+{
+	name: 'Samosa',
+	image: 'https://i.ytimg.com/vi/iIVJN0Yz1Y0/maxresdefault.jpg',
+	id: '3'
+}]
+$scope.dish = dishes[$routeParams.id-1];
+})
 foodieApp.controller('moduleController',function($scope){
-	var fats  = [beef,lamb,pork,poultry,beef,cream,butter,cheese,avocado,walnuts,olives,egg];
-	var prots = [];
-	var carbs = [];
+	$scope.dishes = [{
+		name: 'Butter Chicken',
+		image:'https://i.ytimg.com/vi/a03U45jFxOI/maxresdefault.jpg',
+		category: 'Non-Veg',
+		id: '1'
+	},
+{
+	name: 'Fish',
+	image:  'http://www.arusuvai.com/sites/default/files/howto/2015/10/Fish-Curry.jpg',
+	category: 'Non-Veg',
+	id: '2'
+},
+{
+	name: 'Samosa',
+	image: 'https://i.ytimg.com/vi/iIVJN0Yz1Y0/maxresdefault.jpg',
+  category: 'Snacks',
+	id: '3'
+}]
+
 })

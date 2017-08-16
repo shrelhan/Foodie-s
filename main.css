@@ -147,3 +147,20 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
+.back {
+    background-image: url('http://az616578.vo.msecnd.net/files/2016/05/26/635998280984098489-436941856_fruit.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    color: black;
+    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img {
+  margin-left: 10px;
+}
