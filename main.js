@@ -1,35 +1,44 @@
+// This is used for routing the view pages
 var foodieApp = angular.module('foodieApp',['ngRoute']);
 foodieApp.config(function ($routeProvider) {
+// route location to login page
 	$routeProvider
 	.when('/',{
 		templateUrl: 'pages/login.html',
 		controller: 'loginController'
 	})
+	// route location to home
 	.when('/home',{
 		templateUrl: 'pages/main.html',
 		controller: 'mainController'
 	})
+	// route location to restaurant with id
 	.when('/restaurant/:id', {
 		templateUrl: 'pages/restaurant.html',
 		controller: 'restaurantController'
 	})
+	// route to my module or my project
 	.when('/myModule', {
 		templateUrl: 'pages/myModule.html',
 		controller: 'moduleController'
 	})
+	// route to myDish with id
 	.when('/dish/:id', {
 		templateUrl: 'pages/myDish.html',
 		controller: 'dishController'
 	})
 })
+// controller for login view
 foodieApp.controller('loginController',function($scope,$location) {
 	$scope.goToHome = function() {
 		// console.log('Do Something')
 		$location.url('home')
 	}
 })
+// controller for restaurant
 foodieApp.controller('restaurantController',function($scope,$routeParams,$http) {
 	$scope.ingredients = [];
+	// sending image to clarifai to get ingredients
 	$scope.getIngredients = function(url) {
 	var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
 	$http({
@@ -52,6 +61,7 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
         })
 	}
 	$scope.restaurantId = $routeParams.id;
+	// array of objects of restaurants
 	var restaurants = [{
   	name: 'Relhan Sweets',
   	address: 'Lal Kuan, Delhi',
@@ -134,8 +144,10 @@ id: '5'
 }]
 	$scope.restaurant = restaurants[$routeParams.id-1];
 })
+// this is controller for main.html
 foodieApp.controller('mainController',function($scope) {
-  $scope.restaurants = [{
+// this is array of objects of restaurants
+	$scope.restaurants = [{
   	name: 'Relhan Sweets',
   	address: 'Lal Kuan, Delhi',
   	location: 'Lal Kuan',
@@ -196,11 +208,13 @@ image: 'https://sharkingforchipsanddrinks.files.wordpress.com/2012/03/sam_5270.j
 id: '5'
 }]
 })
+// controller for mydish
 foodieApp.controller('dishController',function($scope,$routeParams,$http){
 	$scope.ingredients = [];
-	$scope.fats = [];
-	$scope.prots = [];
-	$scope.carbs = [];
+	//$scope.fats = [];
+	//$scope.prots = [];
+	//$scope.carbs = [];
+	// this is to send image to clarifai and get ingredients
 	$scope.getIngredients = function(url) {
 	var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
 	$http({
@@ -216,21 +230,28 @@ foodieApp.controller('dishController',function($scope,$routeParams,$http){
 			var fats= ["meat"];
 	    var prots= ["egg"];
 	    var carbs= ["samosa"];
+// this loop is checking that if dish is rich in which nutrient
+	    for (var i=0;i< ingredients.length;i++) {
 
-      for (var i=0;i< ingredients[i].name;i++) {
-					if (ingredients[i].name === fats[i]) {
-           console.log("This is rich in Fats");
+					if (ingredients[i].name == fats[0]) {
+           alert("This is rich in Fats");
+					 break;
 							}
-					else if (ingredients[i].name === prots[i]) {
-			           console.log("This is rich in Protien");
+					else if (ingredients[i].name == prots[0]) {
+			           alert("This is rich in Protien");
+								 break;
 											}
 
-	        else if (ingredients[i].name === carbs[i]) {
-				           console.log("This is rich in Carbohydrates");
+	        else if (ingredients[i].name == carbs[0]) {
+				           alert("This is rich in Carbohydrates");
+									 break;
 										 } }
   			for (var i =0;i < ingredients.length;i++) {
 					$scope.ingredients.push(ingredients[i].name);
   			}
+
+
+
     		// $('.ingredients').html(list);
     		console.log(ingredients);
         }, function (xhr) {
@@ -239,6 +260,7 @@ foodieApp.controller('dishController',function($scope,$routeParams,$http){
 
 }
 	$scope.dishId = $routeParams.id;
+	// array of objects for dishes
 	var dishes = [{
 		name: 'Butter Chicken',
 		image:'https://i.ytimg.com/vi/a03U45jFxOI/maxresdefault.jpg',
