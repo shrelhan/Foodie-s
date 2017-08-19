@@ -198,6 +198,9 @@ id: '5'
 })
 foodieApp.controller('dishController',function($scope,$routeParams,$http){
 	$scope.ingredients = [];
+	$scope.fats = [];
+	$scope.prots = [];
+	$scope.carbs = [];
 	$scope.getIngredients = function(url) {
 	var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
 	$http({
@@ -210,15 +213,31 @@ foodieApp.controller('dishController',function($scope,$routeParams,$http){
 		'data': data
 	}).then(function (response) {
 			var ingredients = response.data.outputs[0].data.concepts;
+			var fats= ["meat"];
+	    var prots= ["egg"];
+	    var carbs= ["samosa"];
+
+      for (var i=0;i< ingredients[i].name;i++) {
+					if (ingredients[i].name === fats[i]) {
+           console.log("This is rich in Fats");
+							}
+					else if (ingredients[i].name === prots[i]) {
+			           console.log("This is rich in Protien");
+											}
+
+	        else if (ingredients[i].name === carbs[i]) {
+				           console.log("This is rich in Carbohydrates");
+										 } }
   			for (var i =0;i < ingredients.length;i++) {
-  				$scope.ingredients.push(ingredients[i].name);
+					$scope.ingredients.push(ingredients[i].name);
   			}
     		// $('.ingredients').html(list);
     		console.log(ingredients);
         }, function (xhr) {
         	console.log(xhr);
         })
-	}
+
+}
 	$scope.dishId = $routeParams.id;
 	var dishes = [{
 		name: 'Butter Chicken',
@@ -226,8 +245,8 @@ foodieApp.controller('dishController',function($scope,$routeParams,$http){
 		id: '1'
 	},
 {
-	name: 'Fish',
-	image:  'http://www.arusuvai.com/sites/default/files/howto/2015/10/Fish-Curry.jpg',
+	name: 'Egg Curry',
+	image:  'http://indianhealthyrecipes.com/wp-content/uploads/2016/01/egg-curry-recipe-12.jpg',
 	id: '2'
 },
 {
@@ -245,7 +264,7 @@ foodieApp.controller('moduleController',function($scope){
 		id: '1'
 	},
 {
-	name: 'Fish',
+	name: 'Egg Curry',
 	image:  'http://www.arusuvai.com/sites/default/files/howto/2015/10/Fish-Curry.jpg',
 	category: 'Non-Veg',
 	id: '2'
